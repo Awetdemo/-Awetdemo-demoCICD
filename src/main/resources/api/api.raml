@@ -1,0 +1,19 @@
+#%RAML 1.0
+title: healthcheck
+version: 1.0
+
+
+traits:
+  securityresponse: !include traits/clientIdEnforcementTraits.raml
+
+/retrieve:
+  description: 
+  get:
+    is: securityresponse 
+    responses:
+      200:
+        description: 
+        body:
+          application/json: !include examples/response/templateResponse.json
+
+

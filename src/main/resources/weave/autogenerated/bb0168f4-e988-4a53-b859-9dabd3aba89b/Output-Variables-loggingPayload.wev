@@ -1,0 +1,16 @@
+%dw 2.0
+
+type auto_bb0168f4_e988_4a53_b859_9dabd3aba89b_Output_Variables_loggingPayload = {|
+  LogLevel: String, 
+  TracePoint: String, 
+  ErrorCode: Null, 
+  ErrorDescription: Null, 
+  LogMessage: String, 
+  payload: {|
+    correlationId: String, 
+    errorCode: Null, 
+    errorMessage: Null, 
+    timestamp: DateTime
+  |}
+|}
+

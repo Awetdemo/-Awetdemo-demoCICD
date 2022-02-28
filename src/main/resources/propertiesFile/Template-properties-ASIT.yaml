@@ -1,0 +1,92 @@
+httpconfiguration: 
+   http:
+      host: "localhost"
+      port: "8081"
+      path:  "healthcheck"
+https:
+      port: "8082"
+      private.port: "8092"
+  
+### Enviroment
+Enviroment:
+  env: "ASIT"
+  ### logger 
+
+json:
+     applicationName: "template-token-api"
+     applicationVersion: "v1"
+
+
+
+
+errorCodeMessage:
+ ###APIKIT Errors ###
+ apikit:
+  badRequest:
+    code: "400"
+    #description: "Request validation error"
+    description: "Bad Request"
+  notFound: 
+    code: "404"
+    #description: "Resource Not Found"
+    description: "Not Found"
+  MethodNotAllowed:
+    code: "405"
+    #description: "HTTP Method Not Allowed"
+    description: "Method Not Allowed"
+  nonAcceptable:
+    code: "406"
+    #description: "Requested Content type not Available"
+    description: "Not Acceptable"
+  unsupportedMediaType:
+    code: "415" 
+    #description: "payload format is not supported"
+    description: "unsupported MediaType"
+  notImplemented:
+    code: "501" 
+    #description: "Requested functionality is not supported"
+    description: "Not Implemented"
+    
+  ### HTTP ERRORS ###
+  http:
+    connectivity:
+      code: "500"
+      #description: "Connectivity Error"
+      description: "Internal Server Error"
+    forbidden:
+      code: "403"
+      #description: "Server refused to authorize the request"
+      description: "Forbidden"
+    serviceUnavailable:
+      code: "503"
+      #description: "Server Not ready to handle Request"
+      description: "Service Unavailable"
+    timeout:
+      code: "504"
+      #description: "Gateway Time out"
+      description: "Gatewat time out"
+    unauthorized:
+      code: "401"
+      #description: "Invalid Credentials"
+      description: "Unauthorized"
+email:
+  fromAddress: "from@emailid.com"
+  toAddress: "to@emialid.com"
+  subject: "Error(Sample)"
+  content: "Hello, Sample message"
+  ### Below sample connection is for gmail as smtp ###
+  connection:
+    host: "smtp.gmail.com"
+    port: "587"
+    user: "yourUserId@domian.com"
+    password: ""
+
+
+      
+    
+     
+      
+  
+        
+    
+    

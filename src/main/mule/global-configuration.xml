@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:email="http://www.mulesoft.org/schema/mule/email"
+	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd 
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<http:listener-config name="api-httpListenerConfig">
+        <http:listener-connection host="${httpconfiguration.http.host}" port="${httpconfiguration.http.port}" />
+    </http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="e20270b5-d3af-4c1d-b967-9c77cea8d102" />
+    <apikit:config name="api-config" api="api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <email:smtp-config name="Email_SMTP" doc:name="Email SMTP" doc:id="2fe4aaaa-9c8c-4553-85a5-5fa179f1d2e2" >
+		<email:smtp-connection host="${email.connection.host}" port="${email.connection.port}" user="${email.connection.user}" password="${email.connection.password}" />
+	</email:smtp-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="51fff985-b0f3-4e5f-99d0-ea32da5c0072" file="propertiesFile\Template-properties-DEV.yaml" />
+	<configuration-properties doc:name="Configuration properties" doc:id="388fe746-1940-4343-b19b-ee5f5f276954" file="propertiesFile\token-local-secure.yaml" />
+	
+</mule>
